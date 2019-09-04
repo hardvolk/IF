@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import './app/theme/variables';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.nav-sidenav-container {
+    min-height: 900px;
+    .mat-sidenav {
+        width: 250px;
+    }
+
+    .mat-sidenav-content {
+        padding-left: 20px;
+    }
+}
