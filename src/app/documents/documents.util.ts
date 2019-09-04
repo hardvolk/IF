@@ -4,15 +4,16 @@ import { IDocuments } from './documents.js';
 export class DocumentsUtil {
     static getDocmuentsList(): IDocuments[] {
         const docs = data['documents'];
-        console.log('=== docs:', docs);
-        const mappedDocs:IDocuments[] = docs.map((doc) => {
-            return {
-                Estado: doc['status']['name'],
-                Documento: doc['name'],
-                Author: doc['user']['name'],
-                Firmante: doc['sign_requests']['name'],
-                Creado: doc['created_at']
-            }
+        const mappedDocs: IDocuments[] = docs.map((doc) => {
+            const newDoc:IDocuments = {
+                status: doc['status'],
+                document: doc['name'],
+                author: doc['user']['name'],
+                signer: doc['sign_requests'].length ? doc['sign_requests'][0]['name'] : '',
+                createdAt: doc['created_at']
+            };
+            newDoc.status.cssClass = `status-${newDoc.status.id}`;
+            return newDoc;
         });
         return mappedDocs;
     }

@@ -1,7 +1,12 @@
+export interface IDocumentsStatus {
+    id: number;
+    name: string;
+    cssClass?: string;
+}
 export interface IDocuments {
-    Estado: string;
-    Documento: string;
-    Author: string;
-    Firmante: string;
-    Creado: string;
+    status: IDocumentsStatus;
+    document: string;
+    author: string;
+    signer: string;
+    createdAt: string;
 }
